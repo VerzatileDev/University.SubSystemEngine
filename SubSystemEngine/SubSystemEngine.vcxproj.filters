@@ -5,14 +5,33 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Core Files">
+      <UniqueIdentifier>{80394da3-3c9e-4427-901f-4947b902664e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="core\Engine.cpp">
+      <Filter>Core Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Event.cpp">
+      <Filter>Core Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\EventHandler.cpp">
+      <Filter>Core Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="core\Engine.h">
+      <Filter>Core Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Event.h">
+      <Filter>Core Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\EventHandler.h">
+      <Filter>Core Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

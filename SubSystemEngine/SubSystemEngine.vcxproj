@@ -55,15 +55,18 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>box2d.lib;sfml-system-d.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreLinkEvent>
-      <Command>robocopy "$(ProjectDir)DLLs" "$(TargetDir)DLLs" /E /COPY:DAT /R:1 /W:1</Command>
+      <Command>copy "$(ProjectDir)DLLs\*.dll" "$(TargetDir)"
+ping -n 6 127.0.0.1 &gt; nul
+</Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -83,11 +86,20 @@
       <AdditionalLibraryDirectories>$(SolutionDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreLinkEvent>
-      <Command>robocopy "$(ProjectDir)DLLs" "$(TargetDir)DLLs" /E /COPY:DAT /R:1 /W:1</Command>
+      <Command>robocopy "$(ProjectDir)DLLs" "$(TargetDir)DLLs" /E /COPY:DAT /R:1 /W:1
+ping -n 6 127.0.0.1 &gt; nul</Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="core\Engine.cpp" />
+    <ClCompile Include="core\Event.cpp" />
+    <ClCompile Include="core\EventHandler.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="core\Engine.h" />
+    <ClInclude Include="core\Event.h" />
+    <ClInclude Include="core\EventHandler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
