@@ -61,7 +61,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>box2d.lib;sfml-system-d.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>box2d.lib;sfml-system-d.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreLinkEvent>
       <Command>copy "$(ProjectDir)DLLs\*.dll" "$(TargetDir)"
@@ -95,11 +95,15 @@ ping -n 6 127.0.0.1 &gt; nul</Command>
     <ClCompile Include="core\Engine.cpp" />
     <ClCompile Include="core\Event.cpp" />
     <ClCompile Include="core\EventHandler.cpp" />
+    <ClCompile Include="core\graphics\Graphics.cpp" />
+    <ClCompile Include="core\Inputs\KeyboardInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\Engine.h" />
     <ClInclude Include="core\Event.h" />
     <ClInclude Include="core\EventHandler.h" />
+    <ClInclude Include="core\graphics\Graphics.h" />
+    <ClInclude Include="core\Inputs\KeyboardInput.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -8,6 +8,12 @@
     <Filter Include="Core Files">
       <UniqueIdentifier>{80394da3-3c9e-4427-901f-4947b902664e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{d416fad7-e142-45a8-9e71-509f79d7505f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inputs">
+      <UniqueIdentifier>{653651bb-f592-43ba-beab-b00313d4a217}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -22,6 +28,12 @@
     <ClCompile Include="core\EventHandler.cpp">
       <Filter>Core Files</Filter>
     </ClCompile>
+    <ClCompile Include="core\graphics\Graphics.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Inputs\KeyboardInput.cpp">
+      <Filter>Inputs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\Engine.h">
@@ -32,6 +44,12 @@
     </ClInclude>
     <ClInclude Include="core\EventHandler.h">
       <Filter>Core Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\graphics\Graphics.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Inputs\KeyboardInput.h">
+      <Filter>Inputs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
