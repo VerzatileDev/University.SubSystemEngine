@@ -1,4 +1,5 @@
 #include "Graphics.h"
+#include <iostream>
 
 Graphics::Graphics()
 {
@@ -11,22 +12,28 @@ Graphics::~Graphics()
 void Graphics::Init(int screenWidth, int screenHeight, const std::string& windowTitle)
 {
     window.create(sf::VideoMode(screenWidth, screenHeight), windowTitle);
-    // Initialize any other graphics-related resources here
 }
 
 void Graphics::UpdateSubsystem()
 {
-    window.clear(); // Clear screen to a single color (here, white)
+    // Get current time
+    auto timeNow = std::chrono::high_resolution_clock::now();
 
-    // Draw a circle (for example)
-    sf::CircleShape circle(50); // Create a circle with radius 50
-    circle.setFillColor(sf::Color::Green); // Set the fill color to green
-    circle.setPosition(375, 275); // Set the position of the circle
+    // Calculate delta time
+    std::chrono::duration<float> duration = std::chrono::duration_cast<std::chrono::duration<float>>(timeNow - timeThen);
+    deltaTime = duration.count();
 
-    // Draw the circle
+    // Display DATA
+    window.clear();
+
+    sf::CircleShape circle(50);
+    circle.setFillColor(sf::Color::Green);
+    circle.setPosition(375, 275);
     window.draw(circle);
+    window.display();
 
-    window.display(); // Display the rendered frame on screen
+    // Update previous time
+    timeThen = timeNow;
 }
 
 void Graphics::CloseWindow()
@@ -34,14 +41,12 @@ void Graphics::CloseWindow()
     window.close();
 }
 
-
-Graphics& Graphics::GetInstance()
-{
-    static Graphics instance;
-    return instance;
-}
-
 sf::RenderWindow& Graphics::GetWindow()
 {
     return window;
+}
+
+float Graphics::GetDeltaTime()
+{
+    return deltaTime ;
 }

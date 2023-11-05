@@ -1,6 +1,6 @@
-#ifndef EVENT_H
-#define EVENT_H
+#pragma once
 
+// Included Libraries
 #include <SFML/Window.hpp>
 
 class Event {
@@ -16,5 +16,3 @@ public:
 private:
     EventType type;
 };
-
-#endif

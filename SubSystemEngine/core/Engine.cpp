@@ -1,6 +1,6 @@
 #include "Engine.h"
 
-Engine::Engine() : running(true)
+Engine::Engine()
 {
 	Init(); // Initialize Engine Components
 	Run();  // Start Core Loop
@@ -8,30 +8,34 @@ Engine::Engine() : running(true)
 
 Engine::~Engine()
 {
+    CleanUP(); // Cleanup Engine Components
 }
 
 void Engine::Init()
 {
-    graphics.Init(800, 600, "SFML Window");
+    graphics.Init(800, 600, "SubSystemEngine ID: 9032499");
 }
 
 void Engine::Run()
 {
-    while (running)
+    while (eventHandler.IsRunning())
     {
-        HandleEvents(); // Set Event for Closing Window through EventHandler
+        WindowClosedCheck();
         graphics.UpdateSubsystem();
 
         eventHandler.ProcessEvents(); // Handle Every Event in the Event Queue
     }
+    CleanUP();
 }
 
-void Engine::HandleEvents() {
+void Engine::WindowClosedCheck() 
+{
     sf::Event event;
-    while (graphics.GetWindow().pollEvent(event)) {
-        if (event.type == sf::Event::Closed) {
-            Event closingEvent(Event::Closed);
-            eventHandler.AddEvent(closingEvent);  // Add event to the queue
-        }
-    }
+    while (graphics.GetWindow().pollEvent(event))
+        (event.type == sf::Event::Closed) ? eventHandler.AddEvent(Event(Event::Closed)) : void();
+}
+
+void Engine::CleanUP()
+{
+    eventHandler.ClearEvents();
 }
