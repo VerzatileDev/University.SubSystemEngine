@@ -7,6 +7,10 @@ class Event {
 public:
     enum EventType {
         Closed,
+        KeyPressed,
+        KeyHeldDown,
+        KeyReleased,
+        EscapePressed,
 
     };
 

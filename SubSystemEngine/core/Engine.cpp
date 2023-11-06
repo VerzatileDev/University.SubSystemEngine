@@ -8,20 +8,23 @@ Engine::Engine()
 
 Engine::~Engine()
 {
-    CleanUP(); // Cleanup Engine Components
+    CleanUP();
 }
 
 void Engine::Init()
 {
     graphics.Init(800, 600, "SubSystemEngine ID: 9032499");
+    inputSystem = new InputSystem(graphics, eventHandler);
 }
 
 void Engine::Run()
 {
     while (eventHandler.IsRunning())
     {
-        WindowClosedCheck();
+        
+        inputSystem->PollEvents(); // Get Keyboard Input
         graphics.UpdateSubsystem();
+        
 
         eventHandler.ProcessEvents(); // Handle Every Event in the Event Queue
     }
@@ -38,4 +41,8 @@ void Engine::WindowClosedCheck()
 void Engine::CleanUP()
 {
     eventHandler.ClearEvents();
+    if (inputSystem) {
+        delete inputSystem;
+        inputSystem = nullptr;
+    }
 }

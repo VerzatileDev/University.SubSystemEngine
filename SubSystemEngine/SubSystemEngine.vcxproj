@@ -96,14 +96,17 @@ ping -n 6 127.0.0.1 &gt; nul</Command>
     <ClCompile Include="core\Event.cpp" />
     <ClCompile Include="core\EventHandler.cpp" />
     <ClCompile Include="core\graphics\Graphics.cpp" />
-    <ClCompile Include="core\Inputs\KeyboardInput.cpp" />
+    <ClCompile Include="core\Inputs\InputSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\Engine.h" />
     <ClInclude Include="core\Event.h" />
     <ClInclude Include="core\EventHandler.h" />
     <ClInclude Include="core\graphics\Graphics.h" />
-    <ClInclude Include="core\Inputs\KeyboardInput.h" />
+    <ClInclude Include="core\Inputs\InputSystem.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="core\Inputs\input_config.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

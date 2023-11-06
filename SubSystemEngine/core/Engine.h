@@ -5,6 +5,7 @@
 
 // Included Files
 #include "graphics/Graphics.h"
+#include "Inputs/InputSystem.h"
 #include "Eventhandler.h"
 
 class Engine
@@ -18,6 +19,7 @@ public:
 
 private:
 	Graphics graphics;
+	InputSystem* inputSystem;
 	EventHandler eventHandler;
 	void WindowClosedCheck();
 };

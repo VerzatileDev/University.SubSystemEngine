@@ -31,7 +31,7 @@
     <ClCompile Include="core\graphics\Graphics.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="core\Inputs\KeyboardInput.cpp">
+    <ClCompile Include="core\Inputs\InputSystem.cpp">
       <Filter>Inputs</Filter>
     </ClCompile>
   </ItemGroup>
@@ -48,8 +48,13 @@
     <ClInclude Include="core\graphics\Graphics.h">
       <Filter>Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="core\Inputs\KeyboardInput.h">
+    <ClInclude Include="core\Inputs\InputSystem.h">
       <Filter>Inputs</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="core\Inputs\input_config.json">
+      <Filter>Inputs</Filter>
+    </None>
   </ItemGroup>
 </Project>
