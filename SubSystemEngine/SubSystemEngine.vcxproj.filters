@@ -8,11 +8,14 @@
     <Filter Include="Core Files">
       <UniqueIdentifier>{80394da3-3c9e-4427-901f-4947b902664e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Inputs">
+      <UniqueIdentifier>{653651bb-f592-43ba-beab-b00313d4a217}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Graphics">
       <UniqueIdentifier>{d416fad7-e142-45a8-9e71-509f79d7505f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Inputs">
-      <UniqueIdentifier>{653651bb-f592-43ba-beab-b00313d4a217}</UniqueIdentifier>
+    <Filter Include="Data">
+      <UniqueIdentifier>{8fad2ae7-a649-4f10-abaa-12fd54792e63}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -34,6 +37,9 @@
     <ClCompile Include="core\Inputs\InputSystem.cpp">
       <Filter>Inputs</Filter>
     </ClCompile>
+    <ClCompile Include="core\Data\ExecutionTimeTracker.cpp">
+      <Filter>Data</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\Engine.h">
@@ -50,6 +56,9 @@
     </ClInclude>
     <ClInclude Include="core\Inputs\InputSystem.h">
       <Filter>Inputs</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Data\ExecutionTimeTracker.h">
+      <Filter>Data</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

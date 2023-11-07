@@ -92,6 +92,7 @@ ping -n 6 127.0.0.1 &gt; nul</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="core\Data\ExecutionTimeTracker.cpp" />
     <ClCompile Include="core\Engine.cpp" />
     <ClCompile Include="core\Event.cpp" />
     <ClCompile Include="core\EventHandler.cpp" />
@@ -99,6 +100,7 @@ ping -n 6 127.0.0.1 &gt; nul</Command>
     <ClCompile Include="core\Inputs\InputSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="core\Data\ExecutionTimeTracker.h" />
     <ClInclude Include="core\Engine.h" />
     <ClInclude Include="core\Event.h" />
     <ClInclude Include="core\EventHandler.h" />

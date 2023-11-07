@@ -8,11 +8,13 @@
 #include <unordered_map>
 #include <iostream>
 #include <chrono>
+#include <bitset>
 
 // Included Files
-#include "../core/Event.h"
-#include "../core/EventHandler.h"
+#include "../Event.h"
+#include "../EventHandler.h"
 #include "../graphics/Graphics.h"
+#include "../Data/ExecutionTimeTracker.h"
 
 class InputSystem
 {
@@ -25,16 +27,19 @@ public:
 	void PollEvents(); // Poll Events from SFML
 	void UpdateKeyState(sf::Keyboard::Key keyCode, bool isPressed); // Update Key State
 	bool IsKeyDown(sf::Keyboard::Key keyCode); // Check if Key is Down
-	
 
 private:
-	// References to other subsystems Stores locally from Instantiator
-	EventHandler& eventHandler; // Stores Local Reference to EventHandler Object
-	Graphics& graphics; // Stores Local Reference to Graphics Object
+	// Local References to Objects
+	EventHandler& eventHandler; // Stores Local Reference to includes Graphics Object that is initialized
+	Graphics& graphics; // Stores Local Reference to includes Graphics Object that is initialized
 
-	// Keyboard Related Variables
+	// Time Related Variables and data structures
+	ExecutionTimeTracker timer; // Stores Local Reference to ExecutionTimeTracker Object
+	bool showFrameRate; // To show FPS in Console
+
+	// Keyboard Related Variables and data structures
 	std::unordered_map<sf::Keyboard::Key, std::string> keyCodeMap; // Stores KeyCodes and Strings
 	std::string ConvertSFMLKeyCodeToString(sf::Keyboard::Key keyCode); // Convert SFML KeyCodes to Strings
 	std::unordered_map<sf::Keyboard::Key, std::string> GenerateKeyCodeMap(); // Write KeyCodes to map
-	std::unordered_map<sf::Keyboard::Key, bool> keyState; // Stores KeyCodes and State
+	std::bitset<sf::Keyboard::KeyCount> keyState; // Stores KeyCodes and State
 };

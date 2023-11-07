@@ -19,42 +19,39 @@ InputSystem::~InputSystem()
 void InputSystem::PollEvents()
 {
     //std::cout << "Window is valid: " << (graphics.GetWindow().isOpen() ? "true" : "false") << std::endl; // Debug To Check if Window is Open
+    timer.StartTimer();
+
     sf::Event event;
     while (graphics.GetWindow().pollEvent(event)) {
         if (event.type == sf::Event::Closed) {
             eventHandler.AddEvent(Event(Event::Closed));
         }
-        else if (event.type == sf::Event::KeyPressed) {
+        else if (event.type == sf::Event::KeyPressed || event.type == sf::Event::KeyReleased) {
             auto it = keyCodeMap.find(event.key.code);
             if (it != keyCodeMap.end()) {
-                // Trigger Key Pressed once. If the key is being held down, *don't trigger it again <- (Currently not working)*
-                if (!IsKeyDown(event.key.code)) {
+                bool isKeyDown = event.type == sf::Event::KeyPressed;
+
+                if (isKeyDown && !IsKeyDown(event.key.code)) {
                     eventHandler.AddEvent(Event(Event::KeyPressed, it->second));
                 }
+                else if (!isKeyDown) {
+                    eventHandler.AddEvent(Event(Event::KeyReleased, it->second));
+                }
 
-                // Generate KeyHeldDown event only if the key is being held down
+                UpdateKeyState(event.key.code, isKeyDown);
+
                 if (IsKeyDown(event.key.code)) {
                     eventHandler.AddEvent(Event(Event::KeyHeldDown, it->second));
                 }
-                UpdateKeyState(event.key.code, true);
             }
             else {
                 eventHandler.AddEvent(Event(Event::KeyPressed, "Unknown Key"));
             }
         }
-        else if (event.type == sf::Event::KeyReleased) {
-            auto it = keyCodeMap.find(event.key.code);
-            if (it != keyCodeMap.end()) {
-                // Generate KeyReleased event
-                eventHandler.AddEvent(Event(Event::KeyReleased, it->second));
-
-                // Update key state
-                UpdateKeyState(event.key.code, false);
-            }
-            else {
-                eventHandler.AddEvent(Event(Event::KeyReleased, "Unknown Key"));
-            }
-        }
+    }
+    timer.StopTimer();
+    if (showFrameRate) {
+        timer.GetAndPrintFrameRate();
     }
 }
 
@@ -157,15 +154,15 @@ std::unordered_map<sf::Keyboard::Key, std::string> InputSystem::GenerateKeyCodeM
 }
 
 void InputSystem::UpdateKeyState(sf::Keyboard::Key keyCode, bool isPressed) {
-    keyState[keyCode] = isPressed; // Store the key state in the map
+    keyState.set(static_cast<size_t>(keyCode), isPressed);
 }
 
 bool InputSystem::IsKeyDown(sf::Keyboard::Key keyCode) {
-    auto it = keyState.find(keyCode);
-    if (it != keyState.end()) {
-        return it->second;
-    }
-    return false;
+    return keyState.test(static_cast<size_t>(keyCode));
+}
+
+void InputSystem::SetShowFrameRate(bool show) {
+    showFrameRate = show;
 }
 
 void InputSystem::Cleanup() {
