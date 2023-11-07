@@ -161,10 +161,6 @@ bool InputSystem::IsKeyDown(sf::Keyboard::Key keyCode) {
     return keyState.test(static_cast<size_t>(keyCode));
 }
 
-void InputSystem::SetShowFrameRate(bool show) {
-    showFrameRate = show;
-}
-
 void InputSystem::Cleanup() {
     keyCodeMap.clear();
 }
