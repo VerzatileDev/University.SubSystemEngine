@@ -1,8 +1,0 @@
-{
-  "key_mappings": {
-    "move_left": "A",
-    "move_right": "D",
-    "jump": "Space",
-    "exit_game": "Escape"
-  }
-}

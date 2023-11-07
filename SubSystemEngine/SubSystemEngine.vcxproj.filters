@@ -52,9 +52,4 @@
       <Filter>Inputs</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="core\Inputs\input_config.json">
-      <Filter>Inputs</Filter>
-    </None>
-  </ItemGroup>
 </Project>

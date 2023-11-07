@@ -18,8 +18,7 @@ public:
 	void CleanUP(); // Cleanup subsystems
 
 private:
+	InputSystem* inputSystem; // Pointer to InputSystem Object
 	Graphics graphics;
-	InputSystem* inputSystem;
 	EventHandler eventHandler;
-	void WindowClosedCheck();
 };

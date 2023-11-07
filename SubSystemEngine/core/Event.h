@@ -2,6 +2,7 @@
 
 // Included Libraries
 #include <SFML/Window.hpp>
+#include <string>
 
 class Event {
 public:
@@ -10,13 +11,15 @@ public:
         KeyPressed,
         KeyHeldDown,
         KeyReleased,
-        EscapePressed,
-
     };
 
+    Event(EventType type, std::string keyString); // Change the second parameter to string
     Event(EventType type);
     EventType GetType() const;
+    std::string GetKeyString() const;
 
 private:
     EventType type;
+    std::string keyString;
+    sf::Keyboard::Key keyCode;
 };

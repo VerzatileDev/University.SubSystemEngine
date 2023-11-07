@@ -105,9 +105,6 @@ ping -n 6 127.0.0.1 &gt; nul</Command>
     <ClInclude Include="core\graphics\Graphics.h" />
     <ClInclude Include="core\Inputs\InputSystem.h" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="core\Inputs\input_config.json" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

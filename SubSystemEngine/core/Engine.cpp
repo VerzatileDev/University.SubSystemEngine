@@ -13,8 +13,8 @@ Engine::~Engine()
 
 void Engine::Init()
 {
-    graphics.Init(800, 600, "SubSystemEngine ID: 9032499");
-    inputSystem = new InputSystem(graphics, eventHandler);
+    graphics.Init(800, 600, "SubSystemEngine ID: 9032499"); // Initialize Window
+    inputSystem = new InputSystem(graphics, eventHandler); // Initialize InputSystem and Pass References to current Graphics and EventHandler to it for use in PollEvents() and AddEvent().
 }
 
 void Engine::Run()
@@ -22,7 +22,7 @@ void Engine::Run()
     while (eventHandler.IsRunning())
     {
         
-        inputSystem->PollEvents(); // Get Keyboard Input
+        inputSystem->PollEvents(); // Get Keyboard Input and assing Events to the Event Queue
         graphics.UpdateSubsystem();
         
 
@@ -31,18 +31,11 @@ void Engine::Run()
     CleanUP();
 }
 
-void Engine::WindowClosedCheck() 
-{
-    sf::Event event;
-    while (graphics.GetWindow().pollEvent(event))
-        (event.type == sf::Event::Closed) ? eventHandler.AddEvent(Event(Event::Closed)) : void();
-}
-
 void Engine::CleanUP()
 {
     eventHandler.ClearEvents();
     if (inputSystem) {
         delete inputSystem;
-        inputSystem = nullptr;
+        inputSystem = nullptr; // Set to nullptr to avoid dangling pointer
     }
 }

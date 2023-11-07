@@ -20,8 +20,22 @@ void EventHandler::ProcessEvents() {
             std::cout <<"Closing the Engine" << std::endl;
             running = false;
             break;
-
+        case Event::KeyPressed:
+            // std::cout << "Key Pressed: " << event.GetKeyString() << std::endl; // Debug
+            if (event.GetKeyString() == "Escape")
+            {
+                std::cout << "Closing the Engine" << std::endl;
+                running = false;
+            }
+            break;
+        case Event::KeyHeldDown:
+            //std::cout << "Key Held: " << event.GetKeyString() << std::endl; // Debug
+            break;
+        case Event::KeyReleased:
+            //std::cout << "Key Released: " << event.GetKeyString() << std::endl; // Debug
+            break;
         default:
+            std::cout << "Event not defined with an action " << std::endl;
             break;
         }
     }
