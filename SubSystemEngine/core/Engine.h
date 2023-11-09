@@ -1,24 +1,24 @@
 #pragma once
 
-// Included Libraries
-#include <iostream>
-
 // Included Files
-#include "graphics/Graphics.h"
+#include "Graphics/Graphics.h"
+#include "graphics/Window.h"
 #include "Inputs/InputSystem.h"
-#include "Eventhandler.h"
+#include "EventHandler.h"
 
 class Engine
 {
 public:
-	Engine(); // Setup Engine for Use
-	~Engine(); // Use Case when Out of Scope
-	void Init(); // Initialize subsystems
-	void Run(); // Engine Core Loop
-	void CleanUP(); // Cleanup subsystems
+    Engine();
+    ~Engine();
+    void Initialize();
+    void Update();
 
 private:
-	InputSystem* inputSystem; // Pointer to InputSystem Object
-	Graphics graphics;
-	EventHandler eventHandler;
+    InputSystem inputSystem;
+    Graphics graphics;
+    //Physics physics;
+    //Audio audio;
+    //Network network;
+    EventHandler eventHandler;
 };

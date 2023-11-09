@@ -1,6 +1,6 @@
 #include "Event.h"
 
-Event::Event(EventType type, std::string keyString) // Change the second parameter to string
+Event::Event(EventType type, std::string keyString)
     : type(type), keyString(keyString) {}
 
 Event::Event(EventType type)
@@ -10,7 +10,6 @@ Event::EventType Event::GetType() const {
     return type;
 }
 
-std::string Event::GetKeyString() const // Change the return type to string
-{
+std::string Event::GetKeyString() const {
     return keyString;
 }

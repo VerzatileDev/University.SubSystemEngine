@@ -40,6 +40,9 @@
     <ClCompile Include="core\Data\ExecutionTimeTracker.cpp">
       <Filter>Data</Filter>
     </ClCompile>
+    <ClCompile Include="core\graphics\Window.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\Engine.h">
@@ -59,6 +62,9 @@
     </ClInclude>
     <ClInclude Include="core\Data\ExecutionTimeTracker.h">
       <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="core\graphics\Window.h">
+      <Filter>Graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

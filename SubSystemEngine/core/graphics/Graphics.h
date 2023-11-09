@@ -1,25 +1,18 @@
 #pragma once
 
-// Included Libraries
-#include <chrono> // Time
-
 // Included Files
+#include "../core/SubSystem.h"
+#include "Window.h"
+
+// Included Libraries
 #include <SFML/Graphics.hpp>
 
-class Graphics
+class Graphics : public SubSystem
 {
 public:
-    Graphics();
-    ~Graphics();
-
-    void Init(int screenWidth, int screenHeight, const std::string& windowTitle);
-    void UpdateSubsystem();
-    void CloseWindow();
-    sf::RenderWindow& GetWindow();
-    float GetDeltaTime();
+    void Initialize() override; // Override Base, Initialize Graphics with window Reference
+    void Update() override;
 
 private:
     sf::RenderWindow window;
-    std::chrono::high_resolution_clock::time_point timeThen;
-    float deltaTime;
 };

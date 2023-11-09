@@ -97,6 +97,7 @@ ping -n 6 127.0.0.1 &gt; nul</Command>
     <ClCompile Include="core\Event.cpp" />
     <ClCompile Include="core\EventHandler.cpp" />
     <ClCompile Include="core\graphics\Graphics.cpp" />
+    <ClCompile Include="core\graphics\Window.cpp" />
     <ClCompile Include="core\Inputs\InputSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +106,7 @@ ping -n 6 127.0.0.1 &gt; nul</Command>
     <ClInclude Include="core\Event.h" />
     <ClInclude Include="core\EventHandler.h" />
     <ClInclude Include="core\graphics\Graphics.h" />
+    <ClInclude Include="core\graphics\Window.h" />
     <ClInclude Include="core\Inputs\InputSystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,5 +1,4 @@
 #include "EventHandler.h"
-#include "Engine.h"
 
 void EventHandler::AddEvent(const Event& event) {
     eventQueue.push_back(event);
@@ -10,21 +9,20 @@ void EventHandler::ClearEvents() {
 }
 
 bool EventHandler::IsRunning() {
-	return running;
+    return running;
 }
 
 void EventHandler::ProcessEvents() {
     for (Event& event : eventQueue) {
         switch (event.GetType()) {
         case Event::Closed:
-            std::cout <<"Closing the Engine" << std::endl;
+            std::cout << "Closing the Engine" << std::endl; // Debug
             running = false;
             break;
         case Event::KeyPressed:
-            // std::cout << "Key Pressed: " << event.GetKeyString() << std::endl; // Debug
-            if (event.GetKeyString() == "Escape")
-            {
-                std::cout << "Closing the Engine" << std::endl;
+            //std::cout << "Key Pressed: " << event.GetKeyString() << std::endl; // Debug
+            if (event.GetKeyString() == "Escape") {
+                std::cout << "Closing the Engine" << std::endl; // Debug
                 running = false;
             }
             break;
@@ -35,7 +33,7 @@ void EventHandler::ProcessEvents() {
             //std::cout << "Key Released: " << event.GetKeyString() << std::endl; // Debug
             break;
         default:
-            std::cout << "Event not defined with an action " << std::endl;
+            std::cout << "Event not defined with an action " << std::endl; // Debug
             break;
         }
     }

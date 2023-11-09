@@ -1,7 +1,6 @@
 #pragma once
 
-// Included Libraries
-#include <SFML/Window.hpp>
+// System Libraries
 #include <string>
 
 class Event {
@@ -13,7 +12,7 @@ public:
         KeyReleased,
     };
 
-    Event(EventType type, std::string keyString); // Change the second parameter to string
+    Event(EventType type, std::string keyString);
     Event(EventType type);
     EventType GetType() const;
     std::string GetKeyString() const;
@@ -21,5 +20,4 @@ public:
 private:
     EventType type;
     std::string keyString;
-    sf::Keyboard::Key keyCode;
 };
