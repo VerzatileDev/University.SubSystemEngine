@@ -17,6 +17,12 @@
     <Filter Include="Data">
       <UniqueIdentifier>{8fad2ae7-a649-4f10-abaa-12fd54792e63}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Physics">
+      <UniqueIdentifier>{6e502c1a-28a0-4b84-ba88-5d4ab98faef0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Primatives">
+      <UniqueIdentifier>{9bccf6b0-f990-4cdc-aa2a-6b7faa1ca0c6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -43,6 +49,27 @@
     <ClCompile Include="core\graphics\Window.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="core\physics\Physics.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Entity.cpp">
+      <Filter>Core Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\graphics\GraphicsComponent.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="core\graphics\Primatives\Square.cpp">
+      <Filter>Graphics\Primatives</Filter>
+    </ClCompile>
+    <ClCompile Include="core\graphics\Primatives\Circle.cpp">
+      <Filter>Graphics\Primatives</Filter>
+    </ClCompile>
+    <ClCompile Include="core\EntityFactory.cpp">
+      <Filter>Core Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\physics\PhysicsComponent.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\Engine.h">
@@ -65,6 +92,33 @@
     </ClInclude>
     <ClInclude Include="core\graphics\Window.h">
       <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="core\SubSystem.h">
+      <Filter>Core Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\physics\Physics.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Component.h">
+      <Filter>Core Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Entity.h">
+      <Filter>Core Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\graphics\GraphicsComponent.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="core\graphics\Primatives\Square.h">
+      <Filter>Graphics\Primatives</Filter>
+    </ClInclude>
+    <ClInclude Include="core\graphics\Primatives\Circle.h">
+      <Filter>Graphics\Primatives</Filter>
+    </ClInclude>
+    <ClInclude Include="core\EntityFactory.h">
+      <Filter>Core Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\physics\PhysicsComponent.h">
+      <Filter>Physics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

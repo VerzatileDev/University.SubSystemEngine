@@ -1,29 +1,48 @@
 #include "Graphics.h"
 
 void Graphics::Initialize()
-{}
+{
+    Entity* player = entityFactory.CreateSquare(50.0f, sf::Color::Green, 100.0f, 100.0f);
+    entities.push_back(player);
+
+    Entity* player2 = entityFactory.CreateCircle();
+    entities.push_back(player2);
+}
 
 void Graphics::Update()
 {
     try {
-        timer.StartTimer();
+        timer.StartTimer(); // Running by Default
 
         sf::RenderWindow& window = Window::getInstance().getRenderWindow();
-        if (window.isOpen()) {
+
+        if (window.isOpen()) 
+        {
+            // Clearance
             window.clear(sf::Color::Blue);
 
-            sf::CircleShape circle(50);
-            circle.setFillColor(sf::Color::Red);
-            circle.setPosition(100, 100);
+            for (const auto& entity : entities)
+            {
+                const std::vector<Component*>& components = entity->GetComponents();
 
-            window.draw(circle);
+                for (const auto& component : components)
+                {
+                    GraphicsComponent* graphicsComponent = dynamic_cast<GraphicsComponent*>(component);
+                    if (graphicsComponent)
+                    {
+                        graphicsComponent->Render(window);
+                    }
+                }
+            }
+
             window.display();
         }
 
         timer.StopTimer();
-        IsFrameRateTrackingEnabled() ? timer.GetAndPrintFrameRate() : void(); // Enabled By EventHandler Input
+        IsFrameRateTrackingEnabled() ? timer.GetAndPrintFrameRate() : void(); // Enabled By EventHandler / Input
     }
     catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
+        std::cerr << "An exception occured in the Update of graphics, see the following: " << e.what() << std::endl;
     }
 }
+

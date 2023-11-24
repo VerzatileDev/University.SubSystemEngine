@@ -3,6 +3,7 @@
 // Included Files
 #include "../core/SubSystem.h"
 #include "Window.h"
+#include "../EntityFactory.h"
 
 // Included Libraries
 #include <SFML/Graphics.hpp>
@@ -15,4 +16,6 @@ public:
 
 private:
     sf::RenderWindow window;
+    std::vector<Entity*> entities; // List to hold entities for rendering
+    EntityFactory entityFactory;
 };

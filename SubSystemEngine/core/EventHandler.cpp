@@ -37,6 +37,5 @@ void EventHandler::ProcessEvents() {
             break;
         }
     }
-
     ClearEvents();
 }
