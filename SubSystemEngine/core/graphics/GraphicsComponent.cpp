@@ -15,3 +15,7 @@ void GraphicsComponent::SetPosition(float x, float y)
     position.y = y;
     //std::cout<< position.x << " " << position.y << std::endl; // Debug
 }
+
+void GraphicsComponent::Update()
+{
+}

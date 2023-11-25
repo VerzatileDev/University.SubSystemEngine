@@ -2,13 +2,9 @@
 
 void Graphics::Initialize()
 {
-    Entity* player = entityFactory.CreateSquare(50.0f, sf::Color::Green, 200.0f, 200.0f);
-    player->SetName("Player1");
+    Entity* player = new Entity("Player1");
+    entityFactory.CreateSquare(player, 50.0f, sf::Color::Green, 100.0f, 100.0f);
     entityManager.AddEntity(player);
-
-    Entity* player2 = entityFactory.CreateCircle();
-    player2->SetName("Player2");
-    entityManager.AddEntity(player2);
 }
 
 void Graphics::Update()
@@ -32,6 +28,7 @@ void Graphics::Update()
             {
                 entityManager.UpdateEntityPosition(entity, entity->GetPosition().x + 0.01f, entity->GetPosition().y);
             }
+
 
             // Render entities using their updated positions
             for (const auto& entity : entities)

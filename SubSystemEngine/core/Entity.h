@@ -13,16 +13,17 @@
 class Entity : public Component
 {
 public:
+    Entity(const std::string& name);
+
     void AddComponent(Component* component);
-    void Update() override;
+    void Update();  // Add an Update function to update all components
+
     void SetPosition(float x, float y);
     const sf::Vector2f& GetPosition() const;
+
+    const std::string& GetName() const;
     const std::vector<Component*>& GetComponents() const;
 
-    const std::string GetName() const;
-
-    // Set a name for the entity
-    void SetName(const std::string& name);
 private:
     std::vector<Component*> components;
     sf::Vector2f position;
