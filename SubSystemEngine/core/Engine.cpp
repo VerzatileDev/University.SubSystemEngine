@@ -14,6 +14,7 @@ void Engine::Initialize()
     Window::getInstance().Initialize(800, 600, "Game Window");
     inputSystem.Initialize();
     graphics.Initialize();
+    physics.Initialize();
 }
 
 void Engine::Update()
@@ -21,6 +22,7 @@ void Engine::Update()
     while (EventHandler::getInstance().IsRunning()) {
         inputSystem.Update();
         graphics.Update();
+        physics.Update();
 
         EventHandler::getInstance().ProcessEvents();
     }

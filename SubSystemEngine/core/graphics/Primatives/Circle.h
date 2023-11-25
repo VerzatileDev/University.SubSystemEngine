@@ -9,6 +9,7 @@ public:
     Circle(float radius, const sf::Color& color); // Definable properties radius and color
     void Render(sf::RenderWindow& window) override;
     void Update() override;
+
 private:
     float radius;
     sf::Color color;

@@ -4,6 +4,7 @@
 #include "Graphics/Graphics.h"
 #include "graphics/Window.h"
 #include "Inputs/InputSystem.h"
+#include "physics/Physics.h"
 #include "EventHandler.h"
 
 class Engine
@@ -17,7 +18,7 @@ public:
 private:
     InputSystem inputSystem;
     Graphics graphics;
-    //Physics physics;
+    Physics physics;
     //Audio audio;
     //Network network;
     EventHandler eventHandler;

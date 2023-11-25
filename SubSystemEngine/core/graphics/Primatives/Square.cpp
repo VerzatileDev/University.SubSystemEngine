@@ -20,5 +20,4 @@ void Square::Render(sf::RenderWindow& window)
 }
 
 void Square::Update()
-{
-}
+{}

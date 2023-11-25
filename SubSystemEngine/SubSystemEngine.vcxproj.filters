@@ -23,6 +23,9 @@
     <Filter Include="Graphics\Primatives">
       <UniqueIdentifier>{9bccf6b0-f990-4cdc-aa2a-6b7faa1ca0c6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core Files\Entities">
+      <UniqueIdentifier>{65b9428b-6f78-4059-9e05-1ac8ad82aa15}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -52,9 +55,6 @@
     <ClCompile Include="core\physics\Physics.cpp">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="core\Entity.cpp">
-      <Filter>Core Files</Filter>
-    </ClCompile>
     <ClCompile Include="core\graphics\GraphicsComponent.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
@@ -64,11 +64,17 @@
     <ClCompile Include="core\graphics\Primatives\Circle.cpp">
       <Filter>Graphics\Primatives</Filter>
     </ClCompile>
-    <ClCompile Include="core\EntityFactory.cpp">
-      <Filter>Core Files</Filter>
-    </ClCompile>
     <ClCompile Include="core\physics\PhysicsComponent.cpp">
       <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="core\EntityFactory.cpp">
+      <Filter>Core Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Entity.cpp">
+      <Filter>Core Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="core\EntityManager.cpp">
+      <Filter>Core Files\Entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -99,12 +105,6 @@
     <ClInclude Include="core\physics\Physics.h">
       <Filter>Physics</Filter>
     </ClInclude>
-    <ClInclude Include="core\Component.h">
-      <Filter>Core Files</Filter>
-    </ClInclude>
-    <ClInclude Include="core\Entity.h">
-      <Filter>Core Files</Filter>
-    </ClInclude>
     <ClInclude Include="core\graphics\GraphicsComponent.h">
       <Filter>Graphics</Filter>
     </ClInclude>
@@ -114,11 +114,20 @@
     <ClInclude Include="core\graphics\Primatives\Circle.h">
       <Filter>Graphics\Primatives</Filter>
     </ClInclude>
-    <ClInclude Include="core\EntityFactory.h">
-      <Filter>Core Files</Filter>
-    </ClInclude>
     <ClInclude Include="core\physics\PhysicsComponent.h">
       <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="core\EntityFactory.h">
+      <Filter>Core Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Entity.h">
+      <Filter>Core Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="core\EntityManager.h">
+      <Filter>Core Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Component.h">
+      <Filter>Core Files\Entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

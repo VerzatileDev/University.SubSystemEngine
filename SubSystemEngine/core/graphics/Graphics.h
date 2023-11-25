@@ -4,6 +4,7 @@
 #include "../core/SubSystem.h"
 #include "Window.h"
 #include "../EntityFactory.h"
+#include "../EntityManager.h"
 
 // Included Libraries
 #include <SFML/Graphics.hpp>
@@ -15,7 +16,7 @@ public:
     void Update() override;
 
 private:
-    sf::RenderWindow window;
-    std::vector<Entity*> entities; // List to hold entities for rendering
-    EntityFactory entityFactory;
+    sf::RenderWindow window; // Window Reference Holder
+    EntityFactory entityFactory; // Entity Factory Reference Holder
+    EntityManager entityManager; // Entity Manager Reference Holder
 };

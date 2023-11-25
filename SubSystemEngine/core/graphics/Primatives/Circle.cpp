@@ -20,5 +20,4 @@ void Circle::Render(sf::RenderWindow& window)
 }
 
 void Circle::Update()
-{
-}
+{}

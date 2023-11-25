@@ -96,6 +96,7 @@ ping -n 6 127.0.0.1 &gt; nul</Command>
     <ClCompile Include="core\Engine.cpp" />
     <ClCompile Include="core\Entity.cpp" />
     <ClCompile Include="core\EntityFactory.cpp" />
+    <ClCompile Include="core\EntityManager.cpp" />
     <ClCompile Include="core\Event.cpp" />
     <ClCompile Include="core\EventHandler.cpp" />
     <ClCompile Include="core\graphics\Graphics.cpp" />
@@ -113,6 +114,7 @@ ping -n 6 127.0.0.1 &gt; nul</Command>
     <ClInclude Include="core\Engine.h" />
     <ClInclude Include="core\Entity.h" />
     <ClInclude Include="core\EntityFactory.h" />
+    <ClInclude Include="core\EntityManager.h" />
     <ClInclude Include="core\Event.h" />
     <ClInclude Include="core\EventHandler.h" />
     <ClInclude Include="core\graphics\Graphics.h" />
