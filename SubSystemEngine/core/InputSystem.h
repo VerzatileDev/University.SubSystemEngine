@@ -9,19 +9,17 @@
 #include <SFML/Window/Keyboard.hpp>
 
 // Included Files
-#include "../Event.h"
-#include "../graphics/Window.h"
-#include "../core/SubSystem.h"
-#include "../EventHandler.h"
+#include "Event.h"
+#include "Window.h"
+#include "EventHandler.h"
 
-class InputSystem : public SubSystem {
+class InputSystem {
 public:
-    void Initialize() override;
-    void Update() override;
+    void Initialize();
+    void Update();
     void PollEvents();
     void Cleanup();
 
-    // Keyboard Related Functions
     void UpdateKeyState(sf::Keyboard::Key keyCode, bool isPressed);
     bool IsKeyDown(sf::Keyboard::Key keyCode);
 
