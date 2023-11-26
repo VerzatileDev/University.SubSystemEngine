@@ -3,6 +3,8 @@
 #include "Physics.h"
 #include "Entity.h"
 #include "Window.h"
+#include "InputSystem.h"
+#include "EventHandler.h"
 
 class Engine
 {
@@ -11,10 +13,10 @@ public:
     ~Engine();
     void initialize();
     void update();
-    void stop();
 private:
     Graphics graphics;
     Physics physics;
+    InputSystem input;
+
     Entity player;
-    bool isRunning;
 };
