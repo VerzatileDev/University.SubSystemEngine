@@ -2,8 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include "Entity.h"
-#include "StaticEntity.h"
+#include "EntityManager.h"
 #include "Window.h"
 
 class Graphics {
@@ -12,7 +11,7 @@ public:
     ~Graphics();
 
     void initialize();
-    void update(Entity& player, StaticEntity& staticEntity);
+    void update();
     sf::RenderWindow& getWindow();
 
     void handleResize();  // New function to handle window resizing

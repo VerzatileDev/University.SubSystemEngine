@@ -11,7 +11,8 @@ public:
 
     void update();
     void draw(sf::RenderWindow& window) const;
-
+    void moveLeft();
+    void moveRight();
 private:
     b2Body* body;
     sf::RectangleShape shape;

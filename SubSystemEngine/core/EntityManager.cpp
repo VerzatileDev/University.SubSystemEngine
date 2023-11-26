@@ -1,34 +1,26 @@
 #include "EntityManager.h"
-#include <iostream>
 
 EntityManager& EntityManager::getInstance() {
     static EntityManager instance;
     return instance;
 }
 
-void EntityManager::AddEntity(Entity* entity) {
+void EntityManager::addEntity(Entity* entity) {
     entities.push_back(entity);
 }
 
-void EntityManager::UpdateEntities() {
+void EntityManager::removeEntity(Entity* entity) {
+    // Remove the entity from the vector (you might want to implement this)
+}
+
+void EntityManager::updateEntities() {
     for (auto& entity : entities) {
-        entity->Update();
+        entity->update();
     }
 }
 
-Entity* EntityManager::GetEntity(int index) {
-    if (index >= 0 && index < entities.size()) {
-        return entities[index];
-    }
-    return nullptr;
-}
-
-const std::vector<Entity*>& EntityManager::GetEntities() const {
-    return entities;
-}
-
-void EntityManager::UpdateEntityPosition(Entity* entity, float x, float y) {
-    if (entity) {
-        entity->SetPosition(x, y);
+void EntityManager::drawEntities() {
+    for (const auto& entity : entities) {
+        entity->draw(Window::getInstance().getWindow());
     }
 }

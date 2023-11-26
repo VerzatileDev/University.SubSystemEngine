@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include <iostream>
 
 Entity::Entity()
 {
@@ -40,4 +41,15 @@ void Entity::update() {
 
 void Entity::draw(sf::RenderWindow& window) const {
     window.draw(shape);
+}
+
+void moveLeft() {
+    std::cout<< "moveLeft" << std::endl;
+    // Adjust the position based on the left movement logic
+    // Example: body->SetLinearVelocity(b2Vec2(-5.0f, body->GetLinearVelocity().y));
+}
+
+void moveRight() {
+    // Adjust the position based on the right movement logic
+    // Example: body->SetLinearVelocity(b2Vec2(5.0f, body->GetLinearVelocity().y));
 }

@@ -31,6 +31,14 @@ void EventHandler::ProcessEvents() {
             }
             break;
         case Event::KeyHeldDown:
+            if (event.GetKeyString() == "A") {
+                // Handle moving left (e.g., player.moveLeft())
+                
+            }
+            else if (event.GetKeyString() == "D") {
+                // Handle moving right (e.g., player.moveRight())
+                
+            }
             break;
         case Event::KeyReleased:
             break;

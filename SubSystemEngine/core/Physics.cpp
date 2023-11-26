@@ -1,6 +1,6 @@
 #include "Physics.h"
 
-Physics::Physics() : world(b2Vec2(0.0f, 9.8f)) {}
+Physics::Physics() : world(b2Vec2(0.0f, 0.08f)) {} // Should be b2Vec2(0.0f, -9.8f) lowered for testing
 
 Physics::~Physics() {
     // The Box2D world will automatically release its resources upon destruction

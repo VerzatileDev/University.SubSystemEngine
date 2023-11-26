@@ -1,7 +1,7 @@
 #include "Engine.h"
 
 // Inside Engine.cpp
-Engine::Engine() : player(physics.getWorld(), sf::Vector2f(400, 300), 50), staticEntity(physics.getWorld(), sf::Vector2f(200, 300), 50) {}
+Engine::Engine() {}
 
 Engine::~Engine() {}
 
@@ -11,6 +11,10 @@ void Engine::initialize()
     input.Initialize();
     physics.initialize();
     graphics.initialize();
+
+    // Create and add entities to the EntityManager
+    Entity* player = new Entity(physics.getWorld(), sf::Vector2f(400, 300), 50);
+    EntityManager::getInstance().addEntity(player);
 }
 
 void Engine::update() {
@@ -19,6 +23,6 @@ void Engine::update() {
         EventHandler::getInstance().ProcessEvents();
 
         physics.update();
-        graphics.update(player, staticEntity);
+        graphics.update();
     }
 }

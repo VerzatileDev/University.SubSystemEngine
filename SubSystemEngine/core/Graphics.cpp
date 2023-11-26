@@ -8,15 +8,12 @@ void Graphics::initialize() {
     // Additional graphics setup can be done here
 }
 
-void Graphics::update(Entity& player, StaticEntity& staticEntity) {
+void Graphics::update() {
     Window::getInstance().clear();
 
-    // Update and draw player
-    player.update();
-    player.draw(Window::getInstance().getWindow());
+    EntityManager::getInstance().updateEntities();
 
-    // Update and draw static entity
-    staticEntity.draw(Window::getInstance().getWindow());
+    EntityManager::getInstance().drawEntities();
 
     Window::getInstance().display();
 }
