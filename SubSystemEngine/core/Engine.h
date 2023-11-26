@@ -1,7 +1,8 @@
 #pragma once
 #include "Graphics.h"
 #include "Physics.h"
-#include "Entity.h"
+#include "Entity.h" // Player
+#include "StaticEntity.h"
 #include "Window.h"
 #include "InputSystem.h"
 #include "EventHandler.h"
@@ -19,4 +20,5 @@ private:
     InputSystem input;
 
     Entity player;
+    StaticEntity staticEntity;
 };

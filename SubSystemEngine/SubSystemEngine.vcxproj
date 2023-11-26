@@ -99,6 +99,7 @@ ping -n 6 127.0.0.1 &gt; nul</Command>
     <ClCompile Include="core\Graphics.cpp" />
     <ClCompile Include="core\InputSystem.cpp" />
     <ClCompile Include="core\Physics.cpp" />
+    <ClCompile Include="core\StaticEntity.cpp" />
     <ClCompile Include="core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +110,7 @@ ping -n 6 127.0.0.1 &gt; nul</Command>
     <ClInclude Include="core\Graphics.h" />
     <ClInclude Include="core\InputSystem.h" />
     <ClInclude Include="core\Physics.h" />
+    <ClInclude Include="core\StaticEntity.h" />
     <ClInclude Include="core\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

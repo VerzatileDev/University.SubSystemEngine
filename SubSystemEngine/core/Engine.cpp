@@ -1,7 +1,7 @@
 #include "Engine.h"
 
 // Inside Engine.cpp
-Engine::Engine() : player(physics.getWorld(), sf::Vector2f(400, 300), 50) {}
+Engine::Engine() : player(physics.getWorld(), sf::Vector2f(400, 300), 50), staticEntity(physics.getWorld(), sf::Vector2f(200, 300), 50) {}
 
 Engine::~Engine() {}
 
@@ -19,6 +19,6 @@ void Engine::update() {
         EventHandler::getInstance().ProcessEvents();
 
         physics.update();
-        graphics.update(player);
+        graphics.update(player, staticEntity);
     }
 }
