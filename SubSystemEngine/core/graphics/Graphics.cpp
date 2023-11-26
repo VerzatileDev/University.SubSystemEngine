@@ -2,15 +2,13 @@
 
 void Graphics::Initialize()
 {
-    Entity* player = new Entity("Player1");
-    entityFactory.CreateSquare(player, 50.0f, sf::Color::Green, 100.0f, 100.0f);
-    entityManager.AddEntity(player);
+    Window::getInstance().Initialize(800, 600, "Game Window");
 }
 
 void Graphics::Update()
 {
     try {
-        timer.StartTimer(); // Running by Default
+        timer.StartTimer();
 
         sf::RenderWindow& window = Window::getInstance().getRenderWindow();
 
@@ -19,15 +17,10 @@ void Graphics::Update()
             // Clearance
             window.clear(sf::Color::Blue);
 
+            EntityManager& entityManager = EntityManager::getInstance();
             entityManager.UpdateEntities();
 
             const std::vector<Entity*>& entities = entityManager.GetEntities();
-
-            // Update position for all entities
-            for (const auto& entity : entities)
-            {
-                entityManager.UpdateEntityPosition(entity, entity->GetPosition().x + 0.01f, entity->GetPosition().y);
-            }
 
 
             // Render entities using their updated positions

@@ -11,10 +11,13 @@ Engine::~Engine()
 
 void Engine::Initialize()
 {
-    Window::getInstance().Initialize(800, 600, "Game Window");
     inputSystem.Initialize();
     graphics.Initialize();
     physics.Initialize();
+
+    Entity* player = new Entity("Player1");
+    entityFactory.CreateSquare(player, 50.0f, sf::Color::Green, 100.0f, 100.0f);
+    EntityManager::getInstance().AddEntity(player);
 }
 
 void Engine::Update()

@@ -18,5 +18,4 @@ public:
 private:
     sf::RenderWindow window; // Window Reference Holder
     EntityFactory entityFactory; // Entity Factory Reference Holder
-    EntityManager entityManager; // Entity Manager Reference Holder
 };
