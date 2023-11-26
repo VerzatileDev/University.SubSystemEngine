@@ -1,38 +1,43 @@
 #include "Entity.h"
 
-Entity::Entity(const std::string& name) : name(name) {}
-
-void Entity::AddComponent(Component* component) {
-    components.push_back(component);
-}
-
-void Entity::Update() {
-    for (auto& component : components) {
-        component->Update();
-    }
-}
-
-void Entity::SetPosition(float x, float y) {
-    position.x = x;
-    position.y = y;
-
-    for (auto& component : components) {
-        GraphicsComponent* graphicsComponent = dynamic_cast<GraphicsComponent*>(component);
-        if (graphicsComponent) {
-            graphicsComponent->SetPosition(x, y);
-        }
-    }
-}
-
-const sf::Vector2f& Entity::GetPosition() const {
-    return position;
-}
-
-const std::string& Entity::GetName() const {
-    return name;
-}
-
-const std::vector<Component*>& Entity::GetComponents() const
+Entity::Entity()
 {
-    return components;
+}
+
+Entity::~Entity()
+{
+    if (body) {
+        body->GetWorld()->DestroyBody(body);
+    }
+}
+
+Entity::Entity(b2World& world, const sf::Vector2f& position, float size) {
+    // Box2D Body
+    b2BodyDef bodyDef;
+    bodyDef.position.Set(position.x, position.y);
+    bodyDef.type = b2_dynamicBody;
+    body = world.CreateBody(&bodyDef);
+
+    b2PolygonShape dynamicBox;
+    dynamicBox.SetAsBox(size / 2.f, size / 2.f);
+
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &dynamicBox;
+    fixtureDef.density = 1.0f;
+    body->CreateFixture(&fixtureDef);
+
+    // SFML Shape
+    shape.setSize(sf::Vector2f(size, size));
+    shape.setOrigin(size / 2.f, size / 2.f);
+    shape.setPosition(position.x, position.y);
+}
+
+void Entity::update() {
+    // Update SFML shape position based on Box2D body position
+    b2Vec2 position = body->GetPosition();
+    shape.setPosition(position.x, position.y);
+}
+
+void Entity::draw(sf::RenderWindow& window) const {
+    window.draw(shape);
 }

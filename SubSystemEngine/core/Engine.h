@@ -1,31 +1,20 @@
 #pragma once
-
-// Included Files
-#include "Graphics/Graphics.h"
-#include "graphics/Window.h"
-#include "Inputs/InputSystem.h"
-#include "physics/Physics.h"
-#include "EventHandler.h"
-
-#include "EntityFactory.h"
-#include "EntityManager.h"
+#include "Graphics.h"
+#include "Physics.h"
+#include "Entity.h"
+#include "Window.h"
 
 class Engine
 {
 public:
     Engine();
     ~Engine();
-    void Initialize();
-    void Update();
-
+    void initialize();
+    void update();
+    void stop();
 private:
-    InputSystem inputSystem;
     Graphics graphics;
     Physics physics;
-
-    EntityFactory entityFactory; // Entity Factory Reference Holder
-    EntityManager entityManager; // Entity Manager Reference Holder
-    //Audio audio;
-    //Network network;
-    EventHandler eventHandler;
+    Entity player;
+    bool isRunning;
 };
