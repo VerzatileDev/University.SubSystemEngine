@@ -30,4 +30,5 @@ private:
     sf::RectangleShape shape;
     Physics& physicsRef;
     Physics physicsInstance;
+    sf::Texture playerTexture;
 };

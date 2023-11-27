@@ -18,6 +18,7 @@ public:
     void setContactListener(b2ContactListener* listener);
 
     void applyForceToCenter(b2Body* body, const b2Vec2& force);
+    void applyLinearVelocity(b2Body* body, const b2Vec2& velocity);
     void applyLinearImpulse(b2Body* body, const b2Vec2& impulse);
 
     void setGravity(const b2Vec2& gravity);

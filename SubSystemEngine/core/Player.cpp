@@ -11,13 +11,22 @@ Player::Player() : body(nullptr), physicsRef(physicsInstance)
 {
 }
 
-Player::Player(Physics& physics) : body(nullptr), physicsRef(physics) { std::cout << "Player constructor called" << std::endl; }
+Player::Player(Physics& physics) : body(nullptr), physicsRef(physics) 
+{ 
+}
 
 Player::~Player() {
     // Managed By Physics and Graphics destructors
 }
 
 void Player::initialize(b2World& world, const sf::Vector2f& position, float size) {
+
+    if (!playerTexture.loadFromFile("../Core/keyboardcat.jpg")) {
+        // Handle error if texture loading fails
+        std::cerr << "Failed to load player texture!" << std::endl;
+    }
+    shape.setTexture(&playerTexture);
+
     shape.setSize(sf::Vector2f(size, size));
     shape.setFillColor(sf::Color::Red);
     shape.setOrigin(25, 25);
@@ -58,13 +67,12 @@ sf::RectangleShape& Player::getShape() {
 
 void Player::moveLeft()
 {
-    physicsInstance.applyForceToCenter(body, b2Vec2(-20.0f, 0.0f));
-    std::cout << "Player moveLeft called" << std::endl;
+    physicsInstance.applyLinearVelocity(body, b2Vec2(-20.0f, 0.0f));
 }
 
 void Player::moveRight()
 {
-    physicsInstance.applyForceToCenter(body, b2Vec2(20.0f, 0.0f));
+    physicsInstance.applyLinearVelocity(body, b2Vec2(20.0f, 0.0f));
 }
 
 void Player::jump()
@@ -74,7 +82,5 @@ void Player::jump()
 
 void Player::stopMoving()
 {
-    b2Vec2 vel = body->GetLinearVelocity();
-    vel.x = 0.0f;
-    body->SetLinearVelocity(vel);
+    physicsInstance.applyLinearVelocity(body, b2Vec2(0.0f, 0.0f));
 }

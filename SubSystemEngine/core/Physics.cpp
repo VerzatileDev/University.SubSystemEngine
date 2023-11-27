@@ -44,6 +44,11 @@ void Physics::applyForceToCenter(b2Body* body, const b2Vec2& force) {
     body->ApplyForceToCenter(force, true);
 }
 
+void Physics::applyLinearVelocity(b2Body* body, const b2Vec2& velocity)
+{
+    	body->SetLinearVelocity(velocity);
+}
+
 void Physics::applyLinearImpulse(b2Body* body, const b2Vec2& impulse) {
     body->ApplyLinearImpulse(impulse, body->GetWorldCenter(), true);
 }
