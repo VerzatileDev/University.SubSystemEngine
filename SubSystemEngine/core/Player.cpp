@@ -1,8 +1,8 @@
 #include "Player.h"
-#include <iostream>
-const float PTM_RATIO = 300.0f;
 
-Player::Player() : body(nullptr), physicsRef(physicsInstance) { // Initialize physicsRef with member variable
+
+Player::Player() : body(nullptr), physicsRef(physicsInstance) 
+{
 }
 
 Player::Player(Physics& physics) : body(nullptr), physicsRef(physics) { std::cout << "Player constructor called" << std::endl; }
@@ -24,6 +24,8 @@ void Player::initialize(b2World& world, const sf::Vector2f& position, float size
     fixtureDef.shape = &dynamicBox;
     fixtureDef.density = 1.0f;
     body->CreateFixture(&fixtureDef);
+
+    body->SetUserData(this);
 
     shape.setSize(sf::Vector2f(size, size));
     shape.setOrigin(size / 2.0f, size / 2.0f);

@@ -1,5 +1,4 @@
 #include "Ground.h"
-#include <iostream>
 
 Ground::Ground() : body(nullptr), physicsRef(physicsInstance)
 {
@@ -25,6 +24,9 @@ void Ground::initialize(b2World& world, const sf::Vector2f& position, float size
     fixtureDef.shape = &groundBox;
     fixtureDef.density = 1.0f;
     body->CreateFixture(&fixtureDef);
+
+    body->SetUserData(this);
+
     shape.setSize(sf::Vector2f(size, size));
     shape.setOrigin(size / 2.0f, size / 2.0f);
 }
