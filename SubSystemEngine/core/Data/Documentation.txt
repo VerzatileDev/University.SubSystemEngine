@@ -1,0 +1,93 @@
+Game Engine Documentation
+
+Event System
+
+Event.h
+The Event class defines various game events such as window closure, key press, hold, and release.
+
+EventHandler.h
+EventHandler manages a queue of events using the Event class, facilitating event processing within the game loop.
+It includes instances of the Player class and the ContactListener class.
+The singleton pattern ensures only one instance of the event handler exists.
+
+
+Graphics Subsystem
+
+Graphics.h
+The Graphics class extends the SubSystem class and handles rendering using SFML.
+It manages a window, view, and drawables (objects to be rendered), providing methods for rendering and view manipulation.
+Interacts with the Window class for window management.
+
+
+Physics Subsystem
+
+Physics.h
+The Physics class extends the SubSystem class and integrates Box2D for physics simulation.
+It provides methods for creating bodies, fixtures, joints, applying forces, and handling collisions.
+Debug drawing can be enabled for visualizing physics entities.
+Interacts with the ContactListener class for collision detection.
+
+
+Player and Ground Entities
+
+Player.h
+The Player class represents the player entity, utilizing Box2D for physics.
+Handles initialization, updating, and drawing of the player entity.
+Interacts with the Physics class for physics simulation.
+
+Ground.h
+The Ground class represents the ground entity, utilizing Box2D for physics.
+Handles initialization, updating, and drawing of the ground entity.
+Interacts with the Physics class for physics simulation.
+
+
+Contact Listener
+
+ContactListener.h
+ContactListener is a Box2D contact listener, detecting collisions between physics entities.
+Tracks whether the player is in contact with the ground.
+Interacts with the Physics class for collision detection.
+
+
+Input System
+
+InputSystem.h
+InputSystem manages user input using SFML, providing methods for initialization, updating, and polling events.
+Interacts with the EventHandler class to process input events.
+
+
+Game Window
+
+Window.h
+The Window class manages the game window using SFML, providing methods for initialization and manipulation.
+Interacts with the Graphics class for rendering.
+
+
+Engine
+
+Engine.h, Engine.cpp
+The Engine class serves as the central coordinator, initializing and updating various subsystems.
+Includes instances of the Graphics, Physics, Player, Ground, InputSystem, and ContactListener.
+Frame rate tracking can be enabled, and an execution time tracker is used for performance monitoring.
+Interacts with all subsystems to coordinate the game loop.
+
+
+Execution Time Tracker
+
+ExecutionTimeTracker.h
+ExecutionTimeTracker measures the elapsed time for performance monitoring.
+Includes methods to start and stop the timer, calculate elapsed time, and print frame rates.
+Interacts with the Engine class for performance monitoring.
+
+
+DataValues
+
+DataValues.h
+Constants such as pixel-to-meter conversion, window dimensions, movement speed, etc., are defined here.
+
+
+Main Program
+
+main.cpp
+The main function initializes the game engine, runs the game loop, and returns upon completion.
+Interacts with the Engine class to manage the game.
