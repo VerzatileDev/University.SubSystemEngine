@@ -32,6 +32,7 @@ void Player::initialize(b2World& world, const sf::Vector2f& position, float size
 void Player::update() {
     if (body) {
         b2Vec2 position = body->GetPosition();
+        std::cout << "Player Position: (" << position.x << ", " << position.y << ")" << std::endl;
         shape.setPosition(position.x , position.y );
     }
 }

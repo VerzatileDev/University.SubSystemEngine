@@ -1,7 +1,7 @@
 #include "Physics.h"
 #include <iostream>
 
-Physics::Physics() : world(b2Vec2(0.0f, -0.02f)) {}
+Physics::Physics() : world(b2Vec2(0.0f, 9.8f)) {}
 
 Physics::~Physics() {
     b2Body* body = world.GetBodyList();

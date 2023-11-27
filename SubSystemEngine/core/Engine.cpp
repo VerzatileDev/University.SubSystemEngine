@@ -16,9 +16,10 @@ void Engine::initialize() {
 
     
     player.initialize(physics.getWorld(), sf::Vector2f(0, 0), 50);
-
+    ground.initialize(physics.getWorld(), sf::Vector2f(0, 0), 50);
     // Add the player's shape to the graphics system's drawables
     graphics.addDrawable(player.getShape());
+    graphics.addDrawable(ground.getShape());
    
 }
 
@@ -34,6 +35,7 @@ void Engine::update() {
 
         physics.update();
         player.update();
+        //ground.update();
         graphics.update();
         EventHandler::getInstance().ProcessEvents();
     }

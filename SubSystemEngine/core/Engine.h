@@ -21,5 +21,6 @@ private:
     Graphics graphics;
     Physics physics;
     Player player;
+    Ground ground;
     InputSystem input;
 };
