@@ -1,7 +1,6 @@
 #include "InputSystem.h"
 
-void InputSystem::Initialize()
-{
+void InputSystem::Initialize() {
     try {
         keyCodeMap = GenerateKeyCodeMap();
     }
@@ -10,8 +9,7 @@ void InputSystem::Initialize()
     }
 }
 
-void InputSystem::Update()
-{
+void InputSystem::Update() {
     try {
         PollEvents();
     }
@@ -20,12 +18,9 @@ void InputSystem::Update()
     }
 }
 
-void InputSystem::PollEvents()
-{
-    timer.StartTimer();
+void InputSystem::PollEvents() {
     sf::Event event;
-    while (Window::getInstance().getRenderWindow().pollEvent(event))
-    {
+    while (Window::getInstance().getWindow().pollEvent(event)) {
         if (event.type == sf::Event::Closed) {
             std::cout << "Received close event" << std::endl;
             EventHandler::getInstance().AddEvent(Event(Event::Closed));
@@ -53,8 +48,6 @@ void InputSystem::PollEvents()
             }
         }
     }
-    timer.StopTimer();
-    IsFrameRateTrackingEnabled() ? timer.GetAndPrintFrameRate() : void(); // Enabled By EventHandler Input
 }
 
 std::string InputSystem::ConvertSFMLKeyCodeToString(sf::Keyboard::Key keyCode) {

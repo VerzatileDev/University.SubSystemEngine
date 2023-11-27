@@ -1,31 +1,29 @@
 #pragma once
 
-// Included Files
 #include "Graphics/Graphics.h"
-#include "graphics/Window.h"
+#include "Physics/Physics.h"
+#include "Handling/Event.h"
+#include "Handling/EventHandler.h"
+#include "Entities/Player.h"
+#include "Entities/Ground.h"
+#include "Window.h"
 #include "Inputs/InputSystem.h"
-#include "physics/Physics.h"
-#include "EventHandler.h"
-
-#include "EntityFactory.h"
-#include "EntityManager.h"
+#include "Physics/ContactListener.h"
 
 class Engine
 {
 public:
     Engine();
     ~Engine();
-    void Initialize();
-    void Update();
+    void initialize();
+    void update();
 
 private:
-    InputSystem inputSystem;
     Graphics graphics;
     Physics physics;
-
-    EntityFactory entityFactory; // Entity Factory Reference Holder
-    EntityManager entityManager; // Entity Manager Reference Holder
-    //Audio audio;
-    //Network network;
-    EventHandler eventHandler;
+    Player& player = Player::getInstance();
+    Ground ground;
+    InputSystem input;
+    ContactListener* playerContactListener;
+    ExecutionTimeTracker timer;
 };

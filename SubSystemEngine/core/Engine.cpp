@@ -1,32 +1,49 @@
 #include "Engine.h"
+#include "Data/ExecutionTimeTracker.h"
 
-Engine::Engine()
+Engine::Engine() {}
+
+Engine::~Engine() 
 {
-    Initialize(); // Initialize SubSystem Components
-    Update(); // Start Engine Core Loop of SubSystem Components
+    if (!playerContactListener)
+    {
+		delete playerContactListener;
+		playerContactListener = nullptr;
+	}
 }
 
-Engine::~Engine()
-{}
+void Engine::initialize() {
+    // Initialize window, input, physics, and graphics
+    Window::getInstance().initialize();
+    input.Initialize();
+    physics.initialize();
+    graphics.initialize();
 
-void Engine::Initialize()
-{
-    inputSystem.Initialize();
-    graphics.Initialize();
-    physics.Initialize();
+    player.initialize(physics.getWorld(), sf::Vector2f(0, 0), 50);
+    ground.initialize(physics.getWorld(), sf::Vector2f(0, 200), 50);
+    // Add the player's shape to the graphics system's drawables
 
-    Entity* player = new Entity("Player1");
-    entityFactory.CreateSquare(player, 50.0f, sf::Color::Green, 100.0f, 100.0f);
-    EntityManager::getInstance().AddEntity(player);
+    playerContactListener = new ContactListener();
+    EventHandler::getInstance().setContactListener(*playerContactListener);
+    physics.getWorld().SetContactListener(playerContactListener);
+
+    graphics.addDrawable(player.getShape());
+    graphics.addDrawable(ground.getShape());
+   
 }
 
-void Engine::Update()
-{
-    while (EventHandler::getInstance().IsRunning()) {
-        inputSystem.Update();
-        graphics.Update();
-        physics.Update();
+void Engine::update() {
+    while (Window::getInstance().getWindow().isOpen() && EventHandler::getInstance().IsRunning()) 
+    {
+        timer.StartTimer();
+        input.Update(); // System
+        physics.update(); // System
+        player.update(); // Entity
+        ground.update(); // Entity
+        graphics.update(); // System
+        EventHandler::getInstance().ProcessEvents(); // System
 
-        EventHandler::getInstance().ProcessEvents();
+        timer.StopTimer();
+        timer.GetAndPrintFrameRate("Engine");
     }
 }
