@@ -1,9 +1,10 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-class Window
-{
+class Window {
 public:
+    Window();
+    ~Window();
     static Window& getInstance();
 
     void initialize();
@@ -11,13 +12,10 @@ public:
     void display();
     sf::RenderWindow& getWindow();
 
-    void setFullscreen(bool fullscreen);  // New function to toggle fullscreen
-    void setWindowSize(sf::Vector2u size);  // New function to set window size
+    void setFullscreen(bool fullscreen);
+    void setWindowSize(sf::Vector2u size);
 
 private:
-    Window();
-    ~Window();
-
     sf::RenderWindow window;
     sf::Vector2u windowSize;
 };

@@ -31,13 +31,11 @@ void EventHandler::ProcessEvents() {
             }
             break;
         case Event::KeyHeldDown:
-            if (event.GetKeyString() == "A") {
-                // Handle moving left (e.g., player.moveLeft())
-                
+            if (event.GetKeyString() == "A" && playerMoveLeftCallback) {
+                playerMoveLeftCallback();
             }
-            else if (event.GetKeyString() == "D") {
-                // Handle moving right (e.g., player.moveRight())
-                
+            else if (event.GetKeyString() == "D" && playerMoveRightCallback) {
+                playerMoveRightCallback();
             }
             break;
         case Event::KeyReleased:
@@ -48,4 +46,12 @@ void EventHandler::ProcessEvents() {
         }
     }
     ClearEvents();
+}
+
+void EventHandler::setPlayerMoveLeftCallback(std::function<void()> callback) {
+    playerMoveLeftCallback = callback;
+}
+
+void EventHandler::setPlayerMoveRightCallback(std::function<void()> callback) {
+    playerMoveRightCallback = callback;
 }

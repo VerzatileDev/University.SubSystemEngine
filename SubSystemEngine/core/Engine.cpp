@@ -1,28 +1,40 @@
 #include "Engine.h"
 
-// Inside Engine.cpp
 Engine::Engine() {}
 
-Engine::~Engine() {}
-
-void Engine::initialize()
+Engine::~Engine() 
 {
+}
+
+void Engine::initialize() {
+    // Initialize window, input, physics, and graphics
     Window::getInstance().initialize();
     input.Initialize();
     physics.initialize();
     graphics.initialize();
 
-    // Create and add entities to the EntityManager
-    Entity* player = new Entity(physics.getWorld(), sf::Vector2f(400, 300), 50);
-    EntityManager::getInstance().addEntity(player);
+
+    
+    player.initialize(physics.getWorld(), sf::Vector2f(0, 0), 50);
+
+    // Add the player's shape to the graphics system's drawables
+    graphics.addDrawable(player.getShape());
+   
 }
 
 void Engine::update() {
     while (Window::getInstance().getWindow().isOpen() && EventHandler::getInstance().IsRunning()) {
+        
+        if (!Window::getInstance().getWindow().isOpen()) {
+            std::cout << "Window is closed!" << std::endl;
+            break; // Break out of the loop if the window is closed
+        }
         input.Update();
-        EventHandler::getInstance().ProcessEvents();
+        
 
         physics.update();
+        player.update();
         graphics.update();
+        EventHandler::getInstance().ProcessEvents();
     }
 }

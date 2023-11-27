@@ -1,11 +1,13 @@
 #pragma once
+
 #include "Graphics.h"
 #include "Physics.h"
-#include "Entity.h"
-#include "EntityManager.h"
+#include "Event.h"
+#include "EventHandler.h"
+#include "Player.h"
+#include "Ground.h"
 #include "Window.h"
 #include "InputSystem.h"
-#include "EventHandler.h"
 
 class Engine
 {
@@ -18,5 +20,6 @@ public:
 private:
     Graphics graphics;
     Physics physics;
+    Player player;
     InputSystem input;
 };

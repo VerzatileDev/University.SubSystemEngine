@@ -1,10 +1,12 @@
 #include "Window.h"
+#include <iostream>
 
 Window::Window() : window(sf::VideoMode(800, 600), "SFML + Box2D"), windowSize(800, 600) {}
 
-Window::~Window() 
-{
-    window.close();
+Window::~Window() {
+    if (window.isOpen()) {
+        window.close();
+    }
 }
 
 Window& Window::getInstance() {

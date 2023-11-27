@@ -93,26 +93,24 @@ ping -n 6 127.0.0.1 &gt; nul</Command>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="core\Engine.cpp" />
-    <ClCompile Include="core\Entity.cpp" />
-    <ClCompile Include="core\EntityManager.cpp" />
     <ClCompile Include="core\Event.cpp" />
     <ClCompile Include="core\EventHandler.cpp" />
     <ClCompile Include="core\Graphics.cpp" />
+    <ClCompile Include="core\Ground.cpp" />
     <ClCompile Include="core\InputSystem.cpp" />
     <ClCompile Include="core\Physics.cpp" />
-    <ClCompile Include="core\StaticEntity.cpp" />
+    <ClCompile Include="core\Player.cpp" />
     <ClCompile Include="core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\Engine.h" />
-    <ClInclude Include="core\Entity.h" />
-    <ClInclude Include="core\EntityManager.h" />
     <ClInclude Include="core\Event.h" />
     <ClInclude Include="core\EventHandler.h" />
     <ClInclude Include="core\Graphics.h" />
+    <ClInclude Include="core\Ground.h" />
     <ClInclude Include="core\InputSystem.h" />
     <ClInclude Include="core\Physics.h" />
-    <ClInclude Include="core\StaticEntity.h" />
+    <ClInclude Include="core\Player.h" />
     <ClInclude Include="core\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
