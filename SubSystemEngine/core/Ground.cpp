@@ -12,23 +12,27 @@ Ground::~Ground() {
 }
 
 void Ground::initialize(b2World& world, const sf::Vector2f& position, float size) {
+    shape.setSize(sf::Vector2f(WINDOW_WIDT, 20));
+    shape.setFillColor(sf::Color::Green);
+    shape.setOrigin(WINDOW_WIDT / 2, 10);
+    shape.setPosition(WINDOW_WIDT / 2, WINDOW_HEIGH - 10);
+    
     b2BodyDef bodyDef;
-    bodyDef.position.Set(position.x + 400, position.y + 300);
-    bodyDef.type = b2_staticBody;  // Ground is a static object
+    bodyDef.type = b2_staticBody;
+    bodyDef.position.Set(WINDOW_WIDT / (2 * PIXELS_PER_METE), (WINDOW_HEIGH - 10) / PIXELS_PER_METE);
     body = world.CreateBody(&bodyDef);
 
     b2PolygonShape groundBox;
-    groundBox.SetAsBox(size / (2.0f), size / (2.0f));
+    groundBox.SetAsBox(WINDOW_WIDT / (2 * PIXELS_PER_METE), 10 / PIXELS_PER_METE);
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &groundBox;
-    fixtureDef.density = 1.0f;
+    fixtureDef.friction = 0.0f;
+    fixtureDef.restitution = 0.0f;
+    fixtureDef.filter.categoryBits = 1;
     body->CreateFixture(&fixtureDef);
 
     body->SetUserData(this);
-
-    shape.setSize(sf::Vector2f(size, size));
-    shape.setOrigin(size / 2.0f, size / 2.0f);
 }
 
 void Ground::draw(sf::RenderWindow& window) {
@@ -43,7 +47,6 @@ sf::RectangleShape& Ground::getShape()
 void Ground::update() {
     if (body) {
         b2Vec2 position = body->GetPosition();
-        std::cout << "Player Position: (" << position.x << ", " << position.y << ")" << std::endl;
-        shape.setPosition(position.x, position.y);
+        shape.setPosition(position.x * PIXELS_PER_METE, position.y * PIXELS_PER_METE);
     }
 }

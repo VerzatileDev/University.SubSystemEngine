@@ -13,13 +13,12 @@ void Engine::initialize() {
     physics.initialize();
     graphics.initialize();
 
-
-    
     player.initialize(physics.getWorld(), sf::Vector2f(0, 0), 50);
     ground.initialize(physics.getWorld(), sf::Vector2f(0, 200), 50);
     // Add the player's shape to the graphics system's drawables
 
     playerContactListener = new ContactListener();
+    EventHandler::getInstance().setContactListener(*playerContactListener);
     physics.getWorld().SetContactListener(playerContactListener);
 
     graphics.addDrawable(player.getShape());

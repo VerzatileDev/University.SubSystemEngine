@@ -16,6 +16,7 @@ Window& Window::getInstance() {
 
 void Window::initialize() {
     // Additional window setup can be done here
+    window.setFramerateLimit(60);
 }
 
 void Window::clear() {

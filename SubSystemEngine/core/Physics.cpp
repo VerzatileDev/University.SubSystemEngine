@@ -13,7 +13,6 @@ Physics::~Physics() {
 }
 
 void Physics::initialize() {
-    // Additional physics setup can be done here
 }
 
 void Physics::update() {
@@ -66,7 +65,5 @@ void Physics::destroyBody(b2Body* body) {
 }
 
 void Physics::enableDebugDrawing(bool enable) {
-    // Implement debug drawing logic here
-    // This function depends on your specific rendering requirements
-    // For example, you can draw shapes using SFML to visualize the physics objects
+    // To be made still
 }

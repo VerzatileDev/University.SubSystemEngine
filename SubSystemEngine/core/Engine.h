@@ -21,8 +21,7 @@ public:
 private:
     Graphics graphics;
     Physics physics;
-    Player player;
-    Player player2;
+    Player& player = Player::getInstance();
     Ground ground;
     InputSystem input;
     ContactListener* playerContactListener;

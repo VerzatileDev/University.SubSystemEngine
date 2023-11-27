@@ -1,5 +1,16 @@
 #include "EventHandler.h"
 
+EventHandler::EventHandler() : contactListener(nullptr)
+{
+}
+
+EventHandler::~EventHandler()
+{
+    if (contactListener != nullptr) {
+		delete contactListener;
+	}
+}
+
 EventHandler& EventHandler::getInstance() {
     static EventHandler instance;
     return instance;
@@ -29,16 +40,29 @@ void EventHandler::ProcessEvents() {
                 std::cout << "Closing the Engine" << std::endl;
                 running = false;
             }
+            else if (event.GetKeyString() == "Space" && canJump && contactListener->IsPlayerOnGround()) {
+				//std::cout << "Space is pressed" << std::endl;
+				player.jump();
+                canJump = false;
+			}
             break;
         case Event::KeyHeldDown:
-            if (event.GetKeyString() == "A" && playerMoveLeftCallback) {
-                playerMoveLeftCallback();
+            if (event.GetKeyString() == "A") {
+                //std::cout << "A is held down" << std::endl;   
+                player.moveLeft();
             }
-            else if (event.GetKeyString() == "D" && playerMoveRightCallback) {
-                playerMoveRightCallback();
+            else if (event.GetKeyString() == "D") {
+                //std::cout << "D is held down" << std::endl;
+                player.moveRight();
             }
             break;
         case Event::KeyReleased:
+            if (event.GetKeyString() == "A" || event.GetKeyString() == "D") {
+                player.stopMoving();
+            }
+            else if (event.GetKeyString() == "Space") {
+				canJump = true;
+			}
             break;
         default:
             std::cout << "Event not defined with an action " << std::endl;
@@ -48,10 +72,12 @@ void EventHandler::ProcessEvents() {
     ClearEvents();
 }
 
-void EventHandler::setPlayerMoveLeftCallback(std::function<void()> callback) {
-    playerMoveLeftCallback = callback;
-}
+void EventHandler::setContactListener(ContactListener& contactListener) {
+    // Clean up the existing ContactListener if it was set
+    if (this->contactListener != nullptr) {
+        delete this->contactListener;
+    }
 
-void EventHandler::setPlayerMoveRightCallback(std::function<void()> callback) {
-    playerMoveRightCallback = callback;
+    // Set the new ContactListener
+    this->contactListener = &contactListener;
 }
