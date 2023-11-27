@@ -92,27 +92,31 @@ ping -n 6 127.0.0.1 &gt; nul</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
-    <ClCompile Include="core\ContactListener.cpp" />
+    <ClCompile Include="core\Data\ExecutionTimeTracker.cpp" />
     <ClCompile Include="core\Engine.cpp" />
-    <ClCompile Include="core\Event.cpp" />
-    <ClCompile Include="core\EventHandler.cpp" />
-    <ClCompile Include="core\Graphics.cpp" />
-    <ClCompile Include="core\Ground.cpp" />
-    <ClCompile Include="core\InputSystem.cpp" />
-    <ClCompile Include="core\Physics.cpp" />
-    <ClCompile Include="core\Player.cpp" />
+    <ClCompile Include="core\Entities\Ground.cpp" />
+    <ClCompile Include="core\Entities\Player.cpp" />
+    <ClCompile Include="core\Graphics\Graphics.cpp" />
+    <ClCompile Include="core\Handling\Event.cpp" />
+    <ClCompile Include="core\Handling\EventHandler.cpp" />
+    <ClCompile Include="core\Inputs\InputSystem.cpp" />
+    <ClCompile Include="core\Physics\ContactListener.cpp" />
+    <ClCompile Include="core\Physics\Physics.cpp" />
     <ClCompile Include="core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="core\ContactListener.h" />
+    <ClInclude Include="core\Data\DataValues.h" />
+    <ClInclude Include="core\Data\ExecutionTimeTracker.h" />
     <ClInclude Include="core\Engine.h" />
-    <ClInclude Include="core\Event.h" />
-    <ClInclude Include="core\EventHandler.h" />
-    <ClInclude Include="core\Graphics.h" />
-    <ClInclude Include="core\Ground.h" />
-    <ClInclude Include="core\InputSystem.h" />
-    <ClInclude Include="core\Physics.h" />
-    <ClInclude Include="core\Player.h" />
+    <ClInclude Include="core\Entities\Ground.h" />
+    <ClInclude Include="core\Entities\Player.h" />
+    <ClInclude Include="core\Graphics\Graphics.h" />
+    <ClInclude Include="core\Handling\Event.h" />
+    <ClInclude Include="core\Handling\EventHandler.h" />
+    <ClInclude Include="core\Inputs\InputSystem.h" />
+    <ClInclude Include="core\Physics\ContactListener.h" />
+    <ClInclude Include="core\Physics\Physics.h" />
+    <ClInclude Include="core\SubSystem.h" />
     <ClInclude Include="core\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

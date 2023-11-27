@@ -1,7 +1,7 @@
 #pragma once
 #include <Box2D/Box2D.h>
-#include "Player.h"
-#include "Ground.h"
+#include "../Entities/Player.h"
+#include "../Entities/Ground.h"
 
 class ContactListener : public b2ContactListener {
 public:

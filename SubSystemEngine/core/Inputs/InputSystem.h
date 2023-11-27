@@ -9,9 +9,9 @@
 #include <SFML/Window/Keyboard.hpp>
 
 // Included Files
-#include "Event.h"
-#include "Window.h"
-#include "EventHandler.h"
+#include "../Handling/Event.h"
+#include "../Window.h"
+#include "../Handling/EventHandler.h"
 
 class InputSystem {
 public:

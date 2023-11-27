@@ -1,9 +1,15 @@
 #include "Engine.h"
+#include "Data/ExecutionTimeTracker.h"
 
 Engine::Engine() {}
 
 Engine::~Engine() 
 {
+    if (!playerContactListener)
+    {
+		delete playerContactListener;
+		playerContactListener = nullptr;
+	}
 }
 
 void Engine::initialize() {
@@ -27,19 +33,17 @@ void Engine::initialize() {
 }
 
 void Engine::update() {
-    while (Window::getInstance().getWindow().isOpen() && EventHandler::getInstance().IsRunning()) {
-        
-        if (!Window::getInstance().getWindow().isOpen()) {
-            std::cout << "Window is closed!" << std::endl;
-            break; // Break out of the loop if the window is closed
-        }
-        input.Update();
-        
+    while (Window::getInstance().getWindow().isOpen() && EventHandler::getInstance().IsRunning()) 
+    {
+        timer.StartTimer();
+        input.Update(); // System
+        physics.update(); // System
+        player.update(); // Entity
+        ground.update(); // Entity
+        graphics.update(); // System
+        EventHandler::getInstance().ProcessEvents(); // System
 
-        physics.update();
-        player.update();
-        ground.update();
-        graphics.update();
-        EventHandler::getInstance().ProcessEvents();
+        timer.StopTimer();
+        timer.GetAndPrintFrameRate("Engine");
     }
 }

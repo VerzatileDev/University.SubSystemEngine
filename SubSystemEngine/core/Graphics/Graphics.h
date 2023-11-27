@@ -1,14 +1,15 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "Window.h"
+#include "../Window.h"
+#include "../SubSystem.h"
 
-class Graphics {
+class Graphics : public SubSystem {
 public:
     Graphics();
     ~Graphics();
 
-    void initialize();
-    void update();
+    void initialize() override;
+    void update() override;
 
     void render();
     void clear();

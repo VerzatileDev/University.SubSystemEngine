@@ -1,7 +1,11 @@
 #include "EventHandler.h"
 
-EventHandler::EventHandler() : contactListener(nullptr)
-{
+EventHandler::EventHandler() : subsystemRef(nullptr), contactListener(nullptr) {
+    // Default constructor implementation
+}
+
+EventHandler::EventHandler(SubSystem& subsystem) : subsystemRef(&subsystem), contactListener(nullptr) {
+    // Constructor implementation
 }
 
 EventHandler::~EventHandler()
@@ -45,6 +49,9 @@ void EventHandler::ProcessEvents() {
 				player.jump();
                 canJump = false;
 			}
+            if (event.GetKeyString() == "Tab" && subsystemRef != nullptr) {
+                subsystemRef->EnableFrameRateTracking(!subsystemRef->IsFrameRateTrackingEnabled());
+            }
             break;
         case Event::KeyHeldDown:
             if (event.GetKeyString() == "A") {
@@ -54,6 +61,11 @@ void EventHandler::ProcessEvents() {
             else if (event.GetKeyString() == "D") {
                 //std::cout << "D is held down" << std::endl;
                 player.moveRight();
+            }
+
+            if (event.GetKeyString() == "Tab")
+            {
+                // If Pressed Get Reference from SUbsystems and Enable Time Tracking from Abstract base class.
             }
             break;
         case Event::KeyReleased:

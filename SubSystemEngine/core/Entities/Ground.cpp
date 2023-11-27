@@ -12,18 +12,18 @@ Ground::~Ground() {
 }
 
 void Ground::initialize(b2World& world, const sf::Vector2f& position, float size) {
-    shape.setSize(sf::Vector2f(WINDOW_WIDT, 20));
+    shape.setSize(sf::Vector2f(WINDOW_WIDTH, 20));
     shape.setFillColor(sf::Color::Green);
-    shape.setOrigin(WINDOW_WIDT / 2, 10);
-    shape.setPosition(WINDOW_WIDT / 2, WINDOW_HEIGH - 10);
+    shape.setOrigin(WINDOW_WIDTH / 2, 10);
+    shape.setPosition(WINDOW_WIDTH / 2, WINDOW_HEIGHT - 10);
     
     b2BodyDef bodyDef;
     bodyDef.type = b2_staticBody;
-    bodyDef.position.Set(WINDOW_WIDT / (2 * PIXELS_PER_METE), (WINDOW_HEIGH - 10) / PIXELS_PER_METE);
+    bodyDef.position.Set(WINDOW_WIDTH / (2 * PIXELS_PER_METER), (WINDOW_HEIGHT - 10) / PIXELS_PER_METER);
     body = world.CreateBody(&bodyDef);
 
     b2PolygonShape groundBox;
-    groundBox.SetAsBox(WINDOW_WIDT / (2 * PIXELS_PER_METE), 10 / PIXELS_PER_METE);
+    groundBox.SetAsBox(WINDOW_WIDTH / (2 * PIXELS_PER_METER), 10 / PIXELS_PER_METER);
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &groundBox;
@@ -47,6 +47,6 @@ sf::RectangleShape& Ground::getShape()
 void Ground::update() {
     if (body) {
         b2Vec2 position = body->GetPosition();
-        shape.setPosition(position.x * PIXELS_PER_METE, position.y * PIXELS_PER_METE);
+        shape.setPosition(position.x * PIXELS_PER_METER, position.y * PIXELS_PER_METER);
     }
 }

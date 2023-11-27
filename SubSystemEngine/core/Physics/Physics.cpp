@@ -16,8 +16,13 @@ void Physics::initialize() {
 }
 
 void Physics::update() {
+    timer.StartTimer();
     // Update physics
     world.Step(1.0f / 60.0f, 8, 3);
+
+    timer.StopTimer();
+    //IsFrameRateTrackingEnabled() ? timer.GetAndPrintFrameRate("Physics") : void(); // Enabled by EventHandler Tab
+    timer.GetAndPrintFrameRate("Physics");
 }
 
 b2World& Physics::getWorld() {

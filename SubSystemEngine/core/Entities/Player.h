@@ -1,12 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
-#include "Physics.h"
+#include "../Physics/Physics.h"
 #include <iostream>
-
-const float PIXELS_PER_METER = 30.0f;
-const int WINDOW_WIDTH = 800;
-const int WINDOW_HEIGHT = 600;
+#include "../Data/DataValues.h"
 
 class Player {
 public:
@@ -25,10 +22,13 @@ public:
     void stopMoving();
     void jump();
 
+    void setDesiredVelocity(const b2Vec2& velocity);
+
 private:
     b2Body* body;
     sf::RectangleShape shape;
     Physics& physicsRef;
     Physics physicsInstance;
     sf::Texture playerTexture;
+    b2Vec2 desiredVelocity;
 };

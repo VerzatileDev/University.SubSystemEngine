@@ -1,13 +1,14 @@
 #pragma once
 #include <Box2D/Box2D.h>
+#include "../SubSystem.h"
 
-class Physics {
+class Physics : public SubSystem {
 public:
     Physics();
     ~Physics();
 
-    void initialize();
-    void update();
+    void initialize() override;
+    void update() override;
 
     b2World& getWorld();
 

@@ -2,18 +2,20 @@
 
 // Included Files
 #include "Event.h"
-#include "Player.h"
+#include "../Entities/Player.h"
+#include "../SubSystem.h"
 
 // System Libraries
 #include <vector>
 #include <iostream>
 #include <functional> 
-#include "ContactListener.h"
+#include "../Physics/ContactListener.h"
 
 
 class EventHandler {
 public:
     EventHandler();
+    EventHandler(SubSystem& subsystem);
     ~EventHandler();
     static EventHandler& getInstance();
     void AddEvent(const Event& event);
@@ -27,4 +29,5 @@ private:
     Player& player = Player::getInstance();
     bool canJump = true;
     ContactListener* contactListener;
+    SubSystem* subsystemRef = nullptr;
 };

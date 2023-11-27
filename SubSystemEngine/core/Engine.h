@@ -1,14 +1,14 @@
 #pragma once
 
-#include "Graphics.h"
-#include "Physics.h"
-#include "Event.h"
-#include "EventHandler.h"
-#include "Player.h"
-#include "Ground.h"
+#include "Graphics/Graphics.h"
+#include "Physics/Physics.h"
+#include "Handling/Event.h"
+#include "Handling/EventHandler.h"
+#include "Entities/Player.h"
+#include "Entities/Ground.h"
 #include "Window.h"
-#include "InputSystem.h"
-#include "ContactListener.h"
+#include "Inputs/InputSystem.h"
+#include "Physics/ContactListener.h"
 
 class Engine
 {
@@ -25,4 +25,5 @@ private:
     Ground ground;
     InputSystem input;
     ContactListener* playerContactListener;
+    ExecutionTimeTracker timer;
 };

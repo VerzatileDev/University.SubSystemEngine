@@ -52,6 +52,7 @@ void Player::initialize(b2World& world, const sf::Vector2f& position, float size
 
 void Player::update() {
     if (body) {
+
         b2Vec2 position = body->GetPosition();
         shape.setPosition(position.x * PIXELS_PER_METER, position.y * PIXELS_PER_METER);
     }
@@ -67,20 +68,24 @@ sf::RectangleShape& Player::getShape() {
 
 void Player::moveLeft()
 {
-    physicsInstance.applyLinearVelocity(body, b2Vec2(-20.0f, 0.0f));
+    physicsInstance.applyLinearVelocity(body, b2Vec2(-MOVEMENT_SPEED, 0.0f));
 }
 
 void Player::moveRight()
 {
-    physicsInstance.applyLinearVelocity(body, b2Vec2(20.0f, 0.0f));
+    physicsInstance.applyLinearVelocity(body, b2Vec2(MOVEMENT_SPEED, 0.0f));
 }
 
 void Player::jump()
 {
-    physicsInstance.applyLinearImpulse(body, b2Vec2(0.0f, -20.0f));
+    physicsInstance.applyLinearImpulse(body, b2Vec2(0.0f, -JUMP_SPEED));
 }
 
 void Player::stopMoving()
 {
     physicsInstance.applyLinearVelocity(body, b2Vec2(0.0f, 0.0f));
+}
+
+void Player::setDesiredVelocity(const b2Vec2& velocity) {
+    desiredVelocity = velocity;
 }
