@@ -1,6 +1,6 @@
 #include "Window.h"
 #include <iostream>
-#include "Data/DataValues.h"
+#include "../../Data/DataValues.h"
 
 Window::Window() : window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "SFML + Box2D"), windowSize(800, 600) {}
 

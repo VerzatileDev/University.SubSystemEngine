@@ -96,13 +96,13 @@ ping -n 6 127.0.0.1 &gt; nul</Command>
     <ClCompile Include="core\Engine.cpp" />
     <ClCompile Include="core\Entities\Ground.cpp" />
     <ClCompile Include="core\Entities\Player.cpp" />
+    <ClCompile Include="core\Graphics\Display\Window.cpp" />
     <ClCompile Include="core\Graphics\Graphics.cpp" />
     <ClCompile Include="core\Handling\Event.cpp" />
     <ClCompile Include="core\Handling\EventHandler.cpp" />
     <ClCompile Include="core\Inputs\InputSystem.cpp" />
     <ClCompile Include="core\Physics\ContactListener.cpp" />
     <ClCompile Include="core\Physics\Physics.cpp" />
-    <ClCompile Include="core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\Data\DataValues.h" />
@@ -110,6 +110,7 @@ ping -n 6 127.0.0.1 &gt; nul</Command>
     <ClInclude Include="core\Engine.h" />
     <ClInclude Include="core\Entities\Ground.h" />
     <ClInclude Include="core\Entities\Player.h" />
+    <ClInclude Include="core\Graphics\Display\Window.h" />
     <ClInclude Include="core\Graphics\Graphics.h" />
     <ClInclude Include="core\Handling\Event.h" />
     <ClInclude Include="core\Handling\EventHandler.h" />
@@ -117,7 +118,6 @@ ping -n 6 127.0.0.1 &gt; nul</Command>
     <ClInclude Include="core\Physics\ContactListener.h" />
     <ClInclude Include="core\Physics\Physics.h" />
     <ClInclude Include="core\SubSystem.h" />
-    <ClInclude Include="core\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

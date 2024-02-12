@@ -10,7 +10,7 @@
 
 // Included Files
 #include "../Handling/Event.h"
-#include "../Window.h"
+#include "../Graphics/Display/Window.h"
 #include "../Handling/EventHandler.h"
 
 class InputSystem {

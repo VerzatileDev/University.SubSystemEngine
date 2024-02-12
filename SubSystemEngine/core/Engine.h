@@ -6,7 +6,7 @@
 #include "Handling/EventHandler.h"
 #include "Entities/Player.h"
 #include "Entities/Ground.h"
-#include "Window.h"
+#include "Graphics/Display/Window.h"
 #include "Inputs/InputSystem.h"
 #include "Physics/ContactListener.h"
 

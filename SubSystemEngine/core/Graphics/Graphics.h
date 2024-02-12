@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../Window.h"
+#include "Display/Window.h"
 #include "../SubSystem.h"
 
 class Graphics : public SubSystem {
