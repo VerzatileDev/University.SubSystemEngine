@@ -44,6 +44,6 @@ void Engine::update() {
         EventHandler::getInstance().ProcessEvents(); // System
 
         timer.StopTimer();
-        timer.GetAndPrintFrameRate("Engine");
+        //timer.GetAndPrintFrameRate("Engine");
     }
 }

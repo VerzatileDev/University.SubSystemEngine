@@ -21,7 +21,7 @@ void Graphics::update() {
     Window::getInstance().display();
     timer.StopTimer();
     //IsFrameRateTrackingEnabled() ? timer.GetAndPrintFrameRate("Graphics") : void(); // Enabled by EventHandler Tab
-    timer.GetAndPrintFrameRate("Graphics"); // The Condition I didn't get to work, So I have used this HarddCode instead.
+    //timer.GetAndPrintFrameRate("Graphics"); // The Condition I didn't get to work, So I have used this HarddCode instead.
 }
 
 void Graphics::render() {

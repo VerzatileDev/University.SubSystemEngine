@@ -21,7 +21,7 @@ Player::~Player() {
 
 void Player::initialize(b2World& world, const sf::Vector2f& position, float size) {
 
-    if (!playerTexture.loadFromFile("../Core/keyboardcat.jpg")) {
+    if (!playerTexture.loadFromFile("assets/keyboardcat.jpg")) {
         // Handle error if texture loading fails
         std::cerr << "Failed to load player texture!" << std::endl;
     }

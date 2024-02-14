@@ -22,7 +22,7 @@ void Physics::update() {
 
     timer.StopTimer();
     //IsFrameRateTrackingEnabled() ? timer.GetAndPrintFrameRate("Physics") : void(); // Enabled by EventHandler Tab
-    timer.GetAndPrintFrameRate("Physics");
+    //timer.GetAndPrintFrameRate("Physics");
 }
 
 b2World& Physics::getWorld() {
