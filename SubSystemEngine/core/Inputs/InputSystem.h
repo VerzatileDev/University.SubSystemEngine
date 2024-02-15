@@ -2,7 +2,6 @@
 
 // System libraries
 #include <unordered_map>
-#include <iostream>
 #include <bitset>
 
 // Included Libraries

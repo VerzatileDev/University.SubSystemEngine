@@ -1,5 +1,8 @@
 #include "InputSystem.h"
 
+// Local to File
+#include <iostream>
+
 void InputSystem::Initialize() {
     try {
         keyCodeMap = GenerateKeyCodeMap();

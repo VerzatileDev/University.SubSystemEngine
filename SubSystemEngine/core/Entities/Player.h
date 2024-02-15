@@ -2,8 +2,6 @@
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
 #include "../Physics/Physics.h"
-#include <iostream>
-#include "../Data/DataValues.h"
 
 class Player {
 public:

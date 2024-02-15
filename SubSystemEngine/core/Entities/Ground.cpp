@@ -1,5 +1,9 @@
 #include "Ground.h"
 
+// Local to file
+#include <iostream>
+#include "../Data/DataValues.h"
+
 Ground::Ground() : body(nullptr), physicsRef(physicsInstance)
 {
 }
